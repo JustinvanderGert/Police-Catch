@@ -5,12 +5,14 @@ using UnityEngine;
 
 public class Car : MonoBehaviour
 {
+    public Camera mainCamera;
     public GameObject player;
+    public GameObject cameraSpot;
     public Text enterCar;
 
 	void Start ()
     {
-		
+        GameObject player = GameObject.Find("Player");
 	}
 	
 	void Update ()
@@ -27,11 +29,10 @@ public class Car : MonoBehaviour
 
         if(Input.GetButtonDown("E"))
         {
-            
-        }
-        if (Input.GetButtonDown("Q"))
-        {
-            Instantiate(player);
+            PlayerMOV playerMov = player.GetComponent<PlayerMOV>();
+            playerMov.allowed = false;
+
+            mainCamera.transform.position = cameraSpot.transform.position;
         }
     }
 }
