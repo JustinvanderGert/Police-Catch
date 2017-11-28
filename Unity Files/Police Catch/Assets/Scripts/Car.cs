@@ -24,5 +24,14 @@ public class Car : MonoBehaviour
         {
             enterCar.text = ("");
         }
-	}
+
+        if(Input.GetButtonDown("E"))
+        {
+            
+        }
+        if (Input.GetButtonDown("Q"))
+        {
+            Instantiate(player);
+        }
+    }
 }
