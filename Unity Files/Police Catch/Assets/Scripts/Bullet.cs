@@ -12,7 +12,7 @@ public class Bullet : MonoBehaviour
         StartCoroutine(DestroyBullet());
     }
 
-    void Update ()
+    void FixedUpdate ()
     {
         gameObject.transform.Translate(speed, 0, 0);
 	}

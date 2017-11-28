@@ -6,11 +6,7 @@ public class Gun : MonoBehaviour
 {
     public GameObject bullet;
 
-	void Start ()
-    {
-		
-	}
-	
+
 	void Update ()
     {
 		if(Input.GetButtonDown("Fire1"))

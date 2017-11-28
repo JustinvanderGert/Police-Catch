@@ -12,10 +12,6 @@ public class PlayerMOV : MonoBehaviour
     public float verticalRotation = 0;
     public float upDownRange = 60;
 
-    void Start ()
-    {
-        
-	}
 	
 	void FixedUpdate ()
     {
