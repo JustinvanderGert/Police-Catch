@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlayerMOV : MonoBehaviour
 {
-    public Camera mainCamera;
     public float speed;
     public float lookSpeed;
     
