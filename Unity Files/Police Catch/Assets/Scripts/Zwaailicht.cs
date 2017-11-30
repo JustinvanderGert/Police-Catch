@@ -6,6 +6,6 @@ public class Zwaailicht : MonoBehaviour
 {
 	void Update ()
     {
-        gameObject.transform.Rotate(0, 5, 0);
+        gameObject.transform.Rotate(0, 3.5f, 0);
     }
 }

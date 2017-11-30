@@ -32,7 +32,9 @@ public class Car : MonoBehaviour
             PlayerMOV playerMov = player.GetComponent<PlayerMOV>();
             playerMov.allowed = false;
 
-            mainCamera.transform.position = cameraSpot.transform.position;
+            player.transform.position = cameraSpot.transform.position;
+            player.transform.rotation = cameraSpot.transform.rotation;
+            
         }
     }
 }
