@@ -9,16 +9,27 @@ public class Car : MonoBehaviour
     public GameObject player;
     public Text enterCar;
     public GameObject zwaailicht;
+    public GameObject exhaust;
+    public GameObject playerExit;
+    public AudioClip weehooh;
+
+    public float turnspeed;
+    public float acceleration;
 
     public bool activate;
 
     void Start()
     {
         cameraSpot.SetActive(false);
+        exhaust.SetActive(false);
+        AudioSource weehooh = GetComponent<AudioSource>();
+        weehooh.Stop();
     }
 
     void Update()
     {
+        AudioSource weehooh = GetComponent<AudioSource>();
+
         if (!player.activeSelf && Input.GetButtonDown("E"))
         {
             StartCoroutine(GetOut());
@@ -34,6 +45,7 @@ public class Car : MonoBehaviour
             {
                 player.SetActive(false);
                 cameraSpot.SetActive(true);
+                exhaust.SetActive(true);
             }
         }
         else
@@ -42,34 +54,41 @@ public class Car : MonoBehaviour
         }
 
         if (Input.GetButtonDown("Q") && !player.activeSelf)
-            {
-                zwaailicht.SetActive(activate);
-                activate =! activate;
-            }
-        if (Input.GetButtonDown("Jump"))
         {
-            player.SetActive(true);
-            cameraSpot.SetActive(false);
-            zwaailicht.SetActive(false);
+            if (activate)
+            {
+                weehooh.Play();
+            }
+            else { weehooh.Stop(); }
+
+            zwaailicht.SetActive(activate);
+            activate = !activate;
         }
+        Driving();
+    }
 
-
+    public void Driving()
+    {
         if (!player.activeSelf)
         {
             if (Input.GetButton("W"))
             {
+                acceleration += 0.2f;
                 gameObject.transform.Translate(1, 0, 0);
             }
             if (Input.GetButton("S"))
             {
+                acceleration += 0.2f;
                 gameObject.transform.Translate(-1, 0, 0);
-            }
-            if (Input.GetButton("A"))
-            {
-                gameObject.transform.Rotate(0, +1.5f, 0);
             }
             if (Input.GetButton("D"))
             {
+                turnspeed += 0.2f;
+                gameObject.transform.Rotate(0, +1.5f, 0);
+            }
+            if (Input.GetButton("A"))
+            {
+                turnspeed += 0.2f;
                 gameObject.transform.Rotate(0, -1.5f, 0);
             }
         }
@@ -77,9 +96,13 @@ public class Car : MonoBehaviour
 
     public IEnumerator GetOut()
     {
+        AudioSource weehooh = GetComponent<AudioSource>();
         yield return new WaitForSeconds(0.1f);
         player.SetActive(true);
         cameraSpot.SetActive(false);
         zwaailicht.SetActive(false);
+        exhaust.SetActive(false);
+        player.transform.position = playerExit.transform.position;
+        weehooh.Stop();
     }
 }
