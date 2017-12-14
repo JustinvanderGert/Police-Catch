@@ -26,7 +26,7 @@ public class Car : MonoBehaviour
         weehooh.Stop();
     }
 
-    void Update()
+    void FixedUpdate()
     {
         AudioSource weehooh = GetComponent<AudioSource>();
 
