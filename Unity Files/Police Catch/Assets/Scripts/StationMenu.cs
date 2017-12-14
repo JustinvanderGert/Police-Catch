@@ -110,6 +110,7 @@ public class StationMenu : MonoBehaviour
     public void ScooterClicked()
     {
         scooter.transform.position = carSpot.transform.position;
+        scooter.transform.rotation = carSpot.transform.rotation;
         scooter.SetActive(true);
         if(cruiser.activeSelf || van.activeSelf)
         {
@@ -120,6 +121,7 @@ public class StationMenu : MonoBehaviour
     public void CruiserClicked()
     {
         cruiser.transform.position = carSpot.transform.position;
+        cruiser.transform.rotation = carSpot.transform.rotation;
         cruiser.SetActive(true);
         if (scooter.activeSelf || van.activeSelf)
         {
@@ -130,6 +132,7 @@ public class StationMenu : MonoBehaviour
     public void VanClicked()
     {
         van.transform.position = carSpot.transform.position;
+        van.transform.rotation = carSpot.transform.rotation;
         van.SetActive(true);
         if (scooter.activeSelf || cruiser.activeSelf)
         {
