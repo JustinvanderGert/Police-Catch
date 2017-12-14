@@ -1,35 +1,89 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine;
 
 public class MissionObjective : MonoBehaviour
 {
     public GameObject stationCameraSpot;
-    public GameObject station;
-    public GameObject panel;
-    public bool isOn;
+    public GameObject garageCameraSpot;
+    public GameObject stationCanvas;
+    public GameObject player;
 
-    public Button missions;
+    public GameObject panel1;
+    public GameObject panel2;
+    
+    public bool missionButton;
+    public bool loadoutButton;
+    public bool garageButton;
+    public bool inMenu;
 
 	void Start ()
     {
         stationCameraSpot.SetActive(false);
-        isOn = false;
 	}
 	
 	void Update ()
     {
-        float distance = Vector3.Distance(station.transform.position, transform.position);
-        if(distance <= 2 && Input.GetButtonDown("E"))
+        float distance = Vector3.Distance(player.transform.position, transform.position);
+
+        if (distance <= 8 & inMenu == false & Input.GetButtonDown("E"))
         {
             stationCameraSpot.SetActive(true);
+            stationCanvas.SetActive(true);
+            inMenu = true;
+            Debug.Log("Gaat aan");
         }
-	}
+        else if (inMenu == true & Input.GetButtonDown("E"))
+        {
+            stationCameraSpot.SetActive(false);
+            stationCanvas.SetActive(false);
+            inMenu = false;
+            Debug.Log("Gaat uit");
+        }
+    }
 
-    public void TaskOnClick()
+    public void MissionsClicked()
     {
-        isOn = !isOn;
-        panel.SetActive(isOn);
+        missionButton = !missionButton;
+        panel1.SetActive(missionButton);
+        Debug.Log("button werkt niet");
+
+        if(loadoutButton == true || garageButton == true)
+        {
+            loadoutButton = false;
+            garageButton = false;
+            panel1.SetActive(missionButton);
+            panel2.SetActive(loadoutButton);
+            garageCameraSpot.SetActive(garageButton);
+        }
+    }
+    public void LoadoutClicked()
+    {
+        loadoutButton = !loadoutButton;
+        panel2.SetActive(loadoutButton);
+
+        if (missionButton == true || garageButton == true)
+        {
+            missionButton = false;
+            garageButton = false;
+            panel1.SetActive(missionButton);
+            panel2.SetActive(loadoutButton);
+            garageCameraSpot.SetActive(garageButton);
+        }
+    }
+    public void GarageClicked()
+    {
+        garageButton = !garageButton;
+        garageCameraSpot.SetActive(garageButton);
+
+        if (loadoutButton == true || missionButton == true)
+        {
+            loadoutButton = false;
+            missionButton = false;
+            panel1.SetActive(missionButton);
+            panel2.SetActive(loadoutButton);
+            garageCameraSpot.SetActive(garageButton);
+        }
     }
 }
