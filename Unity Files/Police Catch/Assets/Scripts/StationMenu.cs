@@ -3,15 +3,22 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 
-public class MissionObjective : MonoBehaviour
+public class StationMenu : MonoBehaviour
 {
     public GameObject stationCameraSpot;
     public GameObject garageCameraSpot;
     public GameObject stationCanvas;
+    public GameObject firstMenu;
     public GameObject player;
 
     public GameObject panel1;
     public GameObject panel2;
+    public GameObject panel3;
+
+    public GameObject carSpot;
+    public GameObject cruiser;
+    public GameObject scooter;
+    public GameObject van;
     
     public bool missionButton;
     public bool loadoutButton;
@@ -32,14 +39,18 @@ public class MissionObjective : MonoBehaviour
             stationCameraSpot.SetActive(true);
             stationCanvas.SetActive(true);
             inMenu = true;
-            Debug.Log("Gaat aan");
         }
         else if (inMenu == true & Input.GetButtonDown("E"))
         {
             stationCameraSpot.SetActive(false);
             stationCanvas.SetActive(false);
             inMenu = false;
-            Debug.Log("Gaat uit");
+
+            //Om garage uit te zetten.
+            firstMenu.SetActive(true);
+            garageCameraSpot.SetActive(false);
+            garageButton = false;
+            panel3.SetActive(false);
         }
     }
 
@@ -76,6 +87,8 @@ public class MissionObjective : MonoBehaviour
     {
         garageButton = !garageButton;
         garageCameraSpot.SetActive(garageButton);
+        firstMenu.SetActive(false);
+        panel3.SetActive(true);
 
         if (loadoutButton == true || missionButton == true)
         {
@@ -84,6 +97,44 @@ public class MissionObjective : MonoBehaviour
             panel1.SetActive(missionButton);
             panel2.SetActive(loadoutButton);
             garageCameraSpot.SetActive(garageButton);
+        }
+    }
+    public void BackClicked()
+    {
+        firstMenu.SetActive(true);
+        garageCameraSpot.SetActive(false);
+        garageButton = false;
+        panel3.SetActive(false);
+    }
+
+    public void ScooterClicked()
+    {
+        scooter.transform.position = carSpot.transform.position;
+        scooter.SetActive(true);
+        if(cruiser.activeSelf || van.activeSelf)
+        {
+            cruiser.SetActive(false);
+            van.SetActive(false);
+        }
+    }
+    public void CruiserClicked()
+    {
+        cruiser.transform.position = carSpot.transform.position;
+        cruiser.SetActive(true);
+        if (scooter.activeSelf || van.activeSelf)
+        {
+            scooter.SetActive(false);
+            van.SetActive(false);
+        }
+    }
+    public void VanClicked()
+    {
+        van.transform.position = carSpot.transform.position;
+        van.SetActive(true);
+        if (scooter.activeSelf || cruiser.activeSelf)
+        {
+            scooter.SetActive(false);
+            cruiser.SetActive(false);
         }
     }
 }
