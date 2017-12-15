@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class StationMenu : MonoBehaviour
 {
+    public List<string> objective = new List<string>();
+    public List<string> details = new List<string>();
+
     public GameObject stationCameraSpot;
     public GameObject garageCameraSpot;
     public GameObject stationCanvas;
@@ -24,6 +27,9 @@ public class StationMenu : MonoBehaviour
     public bool loadoutButton;
     public bool garageButton;
     public bool inMenu;
+
+    public Text missionDetails;
+    private int listCount;
 
 	void Start ()
     {
@@ -58,7 +64,6 @@ public class StationMenu : MonoBehaviour
     {
         missionButton = !missionButton;
         panel1.SetActive(missionButton);
-        Debug.Log("button werkt niet");
 
         if(loadoutButton == true || garageButton == true)
         {
@@ -139,5 +144,18 @@ public class StationMenu : MonoBehaviour
             scooter.SetActive(false);
             cruiser.SetActive(false);
         }
+    }
+
+    public void Mission1Hover()
+    {
+        missionDetails.text = (details[listCount]);
+    }
+    public void Mission2Hover()
+    {
+        missionDetails.text = (details[listCount +1]);
+    }
+    public void Mission3Hover()
+    {
+        missionDetails.text = (details[listCount +2]);
     }
 }

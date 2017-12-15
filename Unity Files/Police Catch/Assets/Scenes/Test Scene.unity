@@ -245,6 +245,80 @@ Transform:
   m_Father: {fileID: 1268397057}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &62439532
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 62439533}
+  - component: {fileID: 62439535}
+  - component: {fileID: 62439534}
+  m_Layer: 5
+  m_Name: MissionDetails
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &62439533
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 62439532}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.39569306, y: 0.07490874, z: 1}
+  m_Children: []
+  m_Father: {fileID: 981196921}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 35.48, y: 0.18}
+  m_SizeDelta: {x: 179.32, y: 322.145}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &62439534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 62439532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: New Text
+--- !u!222 &62439535
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 62439532}
 --- !u!1 &77521074
 GameObject:
   m_ObjectHideFlags: 0
@@ -540,8 +614,9 @@ GameObject:
   - component: {fileID: 269054142}
   - component: {fileID: 269054141}
   - component: {fileID: 269054140}
+  - component: {fileID: 269054143}
   m_Layer: 5
-  m_Name: First Mission (2)
+  m_Name: Third Mission
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -651,6 +726,36 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 269054138}
+--- !u!114 &269054143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 269054138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 904646672}
+          m_MethodName: Mission3Hover
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!1 &287648469
 GameObject:
   m_ObjectHideFlags: 0
@@ -908,6 +1013,7 @@ GameObject:
   - component: {fileID: 411446861}
   - component: {fileID: 411446865}
   - component: {fileID: 411446866}
+  - component: {fileID: 411446867}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1020,6 +1126,28 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &411446867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 411446860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06837c90b153d744d91e3315dbaf30f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objective:
+  - find the dealer and bring him in.
+  - take down the robber.
+  details:
+  - We found a dealer near the flats
+  - there is a robbery in progress at the jewelery
+  - We've got a report of a mugger.
+  - There are reports of a drug deal around this area.
+  - 
+  - 
+  currentMission: 0
 --- !u!1 &422080327
 GameObject:
   m_ObjectHideFlags: 0
@@ -2018,6 +2146,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92ed28c5999f8314ebdecf51f759d9c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objective:
+  - Stop the robbery
+  - Find and capture the DrugDealler
+  - Catch the mugger
+  details:
+  - We've located a robbery in progress, Go there and stop it!
+  - There are reports of a drug deal going down, Bring them in.
+  - Someone is being mugged, Go and help him.
+  - There is a drug deal going down, stop them.
+  - Test
   stationCameraSpot: {fileID: 1929318774}
   garageCameraSpot: {fileID: 748101312}
   stationCanvas: {fileID: 234040258}
@@ -2034,6 +2172,7 @@ MonoBehaviour:
   loadoutButton: 0
   garageButton: 0
   inMenu: 0
+  missionDetails: {fileID: 62439534}
 --- !u!65 &904646675
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2312,6 +2451,7 @@ RectTransform:
   - {fileID: 2135593786}
   - {fileID: 1161050634}
   - {fileID: 269054139}
+  - {fileID: 62439533}
   m_Father: {fileID: 1669246632}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2883,8 +3023,9 @@ GameObject:
   - component: {fileID: 1161050637}
   - component: {fileID: 1161050636}
   - component: {fileID: 1161050635}
+  - component: {fileID: 1161050638}
   m_Layer: 5
-  m_Name: First Mission (1)
+  m_Name: Second Mission
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2947,18 +3088,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1161050636}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: TaskOnClick
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1161050636
@@ -2994,6 +3124,36 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1161050633}
+--- !u!114 &1161050638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1161050633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 904646672}
+          m_MethodName: Mission2Hover
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!1 &1261173538
 GameObject:
   m_ObjectHideFlags: 0
@@ -9467,16 +9627,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e73c7077c6839c741b4b9fe2ece3ea13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraSpot: {fileID: 31594892}
-  player: {fileID: 411446860}
-  enterCar: {fileID: 1276997004}
   zwaailicht: {fileID: 1742040358}
-  exhaust: {fileID: 1985803584}
+  cameraSpot: {fileID: 31594892}
   playerExit: {fileID: 88302237}
+  exhaust: {fileID: 1985803584}
+  player: {fileID: 411446860}
   weehooh: {fileID: 0}
+  enterCar: {fileID: 1276997004}
+  activate: 1
   turnspeed: 0
   acceleration: 0
-  activate: 1
 --- !u!4 &2102075259 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 1157c432be9a6fb408553267d5590e05, type: 3}
@@ -9646,6 +9806,7 @@ GameObject:
   - component: {fileID: 2135593789}
   - component: {fileID: 2135593788}
   - component: {fileID: 2135593787}
+  - component: {fileID: 2135593790}
   m_Layer: 5
   m_Name: First Mission
   m_TagString: Untagged
@@ -9757,3 +9918,33 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2135593785}
+--- !u!114 &2135593790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2135593785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 904646672}
+          m_MethodName: Mission1Hover
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []

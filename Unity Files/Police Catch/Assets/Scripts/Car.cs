@@ -5,18 +5,19 @@ using UnityEngine;
 
 public class Car : MonoBehaviour
 {
-    public GameObject cameraSpot;
-    public GameObject player;
-    public Text enterCar;
     public GameObject zwaailicht;
-    public GameObject exhaust;
+    public GameObject cameraSpot;
     public GameObject playerExit;
+    public GameObject exhaust;
+    public GameObject player;
+
     public AudioClip weehooh;
+    public Text enterCar;
+    public bool activate;
 
     public float turnspeed;
     public float acceleration;
 
-    public bool activate;
 
     void Start()
     {
