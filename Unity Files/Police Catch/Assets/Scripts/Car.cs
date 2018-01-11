@@ -1,5 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Collections;
 using UnityEngine.UI;
 using UnityEngine;
 
@@ -27,14 +27,13 @@ public class Car : MonoBehaviour
         weehooh.Stop();
     }
 
-    void FixedUpdate()
+    void Update()
     {
         AudioSource weehooh = GetComponent<AudioSource>();
 
         if (!player.activeSelf && Input.GetButtonDown("E"))
         {
             StartCoroutine(GetOut());
-            print("test");
         }
 
         float distance = Vector3.Distance(player.transform.position, transform.position);
@@ -65,6 +64,10 @@ public class Car : MonoBehaviour
             zwaailicht.SetActive(activate);
             activate = !activate;
         }
+    }
+
+    void FixedUpdate()
+    {
         Driving();
     }
 

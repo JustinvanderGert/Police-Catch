@@ -1,5 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Collections;
 using UnityEngine.UI;
 using UnityEngine;
 
@@ -29,7 +29,7 @@ public class StationMenu : MonoBehaviour
     public bool inMenu;
 
     public Text missionDetails;
-    private int listCount;
+    private int listCount = 0;
 
 	void Start ()
     {
@@ -60,6 +60,7 @@ public class StationMenu : MonoBehaviour
         }
     }
 
+    //Buttons in menu.
     public void MissionsClicked()
     {
         missionButton = !missionButton;

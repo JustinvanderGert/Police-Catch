@@ -1,5 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Collections;
 using UnityEngine.UI;
 using UnityEngine;
 
@@ -11,13 +11,13 @@ public class Missions : MonoBehaviour
     {
 		
 	}
-	
-	void Update ()
-    {
-		
-	}
 
-    public void FirstMissionClick()
+    void Update()
+    {
+
+    }
+
+    void DealerMission()
     {
 
     }
