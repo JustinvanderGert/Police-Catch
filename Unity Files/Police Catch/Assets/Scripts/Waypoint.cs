@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class Waypoint : MonoBehaviour
 {
-    public Transform mugger;
+    public GameObject dealer;
     public float turnSpeed;
 
 	void Update ()
     {
-        Vector3 targetDir = mugger.position - transform.position;
+        dealer = GameObject.FindGameObjectWithTag("Dealer");
+
+        Vector3 targetDir = dealer.transform.position - transform.position;
         float step = turnSpeed * Time.deltaTime;
         Vector3 newDir = Vector3.RotateTowards(transform.forward, targetDir, step, 0.0F);
         Debug.DrawRay(transform.position, newDir, Color.red);

@@ -8,9 +8,12 @@ public class StationMenu : MonoBehaviour
     public List<string> objective = new List<string>();
     public List<string> details = new List<string>();
 
+    public Dealer dealer;
+
     public GameObject stationCameraSpot;
     public GameObject garageCameraSpot;
     public GameObject stationCanvas;
+    public GameObject enemyObject;
     public GameObject firstMenu;
     public GameObject player;
 
@@ -34,6 +37,7 @@ public class StationMenu : MonoBehaviour
 	void Start ()
     {
         stationCameraSpot.SetActive(false);
+        dealer = enemyObject.GetComponent<Dealer>();
 	}
 	
 	void Update ()
@@ -158,5 +162,15 @@ public class StationMenu : MonoBehaviour
     public void Mission3Hover()
     {
         missionDetails.text = (details[listCount +2]);
+    }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        if (dealer.GetComponent<Dealer>().isCaught)
+        {
+            dealer.GetComponent<Dealer>().done = true;
+            dealer.GetComponent<Dealer>().dealer.SetActive(false);
+            Destroy(enemyObject);
+        }
     }
 }
