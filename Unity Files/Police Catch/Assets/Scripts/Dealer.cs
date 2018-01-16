@@ -17,8 +17,8 @@ public class Dealer : MonoBehaviour
     public int health = 4;
     float multiplier = 0.2f;
 
-    float requiredClicks = 15;
-    float totalClicks = 0;
+    public float totalClicks = 0;
+    float requiredClicks = 10;
 
     bool isDowned;
     public bool isCaught;
@@ -41,21 +41,22 @@ public class Dealer : MonoBehaviour
         if (distance <= catchRange & isDowned || distance <= catchRange & isTazed)
         {
             pressToCatch.text = ("Press Q repeatedly to catch");
-            if (Input.GetButtonDown("Q")) { totalClicks++; }
+            if (Input.GetButtonDown("Q")) { totalClicks += 1; }
         }
         else { pressToCatch.text = (""); }
 
-        if (totalClicks >= 1) { totalClicks -= 1 * (Time.deltaTime * clickCountdown); }
+        if (totalClicks >= 0) { totalClicks -= 1 * (Time.deltaTime * clickCountdown); }
         if (totalClicks >= requiredClicks) { Caught(); }
         Debug.Log(totalClicks);
     }
 
     void Caught()
-    {
+    {   
         isCaught = true;
         pressToCatch.text = ("");
         totalClicks = 0;
         gameObject.SetActive(false);
         dealer.SetActive(true);
+        gameObject.GetComponentInChildren<CatchBar>().StopBar();
     }
 }
