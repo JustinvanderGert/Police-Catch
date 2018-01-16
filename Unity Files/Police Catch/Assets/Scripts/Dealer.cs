@@ -40,7 +40,7 @@ public class Dealer : MonoBehaviour
 
         if (distance <= catchRange & isDowned || distance <= catchRange & isTazed)
         {
-            pressToCatch.text = ("Press Q repeatedly to catch");
+            pressToCatch.text = ("Press Q repeatedly to catch Dealer");
             if (Input.GetButtonDown("Q")) { totalClicks += 1; }
         }
         else { pressToCatch.text = (""); }
