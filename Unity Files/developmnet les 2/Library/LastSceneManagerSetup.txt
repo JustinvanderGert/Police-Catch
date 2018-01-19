@@ -1,4 +1,0 @@
-sceneSetups:
-- path: Assets/Nog een terrain les.unity
-  isLoaded: 1
-  isActive: 1
