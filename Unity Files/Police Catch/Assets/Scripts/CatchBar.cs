@@ -14,6 +14,7 @@ public class CatchBar : MonoBehaviour
 
     void Start()
     {
+        pos.x = 0;
         dealer = GameObject.FindGameObjectWithTag("Dealer");
     }
 
@@ -35,10 +36,10 @@ public class CatchBar : MonoBehaviour
 	}
     public void StopBar()
     {
-        gameObject.SetActive(false);
+        pos.x = 0;
     }
     public void StartBar()
     {
-        gameObject.SetActive(true);
+        pos.x = 400;
     }
 }

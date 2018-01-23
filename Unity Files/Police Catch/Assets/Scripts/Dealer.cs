@@ -16,6 +16,7 @@ public class Dealer : MonoBehaviour
     public float range = 30;
     public int health = 4;
     float multiplier = 0.2f;
+    int effect;
 
     public float totalClicks = 0;
     float requiredClicks = 10;
@@ -24,19 +25,23 @@ public class Dealer : MonoBehaviour
     public bool isCaught;
     public bool done;
     public bool isTazed;
-    public GameObject dealer;
+    public GameObject dealerImage;
 
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        dealer.SetActive(false);
+        dealerImage.SetActive(false);
     }
 
     void Update()
     {
-        Vector3 runTo = transform.position + ((transform.position - Player.position) * multiplier);
         float distance = Vector3.Distance(transform.position, Player.position);
-        if (distance < range) agent.SetDestination(runTo);
+
+        if (!isTazed & !isDowned)
+        {
+            Vector3 runTo = transform.position + ((transform.position - Player.position) * multiplier);
+            if (distance < range) agent.SetDestination(runTo);
+        }
 
         if (distance <= catchRange & isDowned || distance <= catchRange & isTazed)
         {
@@ -47,16 +52,28 @@ public class Dealer : MonoBehaviour
 
         if (totalClicks >= 0) { totalClicks -= 1 * (Time.deltaTime * clickCountdown); }
         if (totalClicks >= requiredClicks) { Caught(); }
-        Debug.Log(totalClicks);
+    }
+    public void Tazed()
+    {
+        isTazed = true;
+        StartCoroutine(TazeEffect());
+        GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<CatchBar>().StartBar();
     }
 
     void Caught()
-    {   
+    {
         isCaught = true;
         pressToCatch.text = ("");
         totalClicks = 0;
         gameObject.SetActive(false);
-        dealer.SetActive(true);
-        gameObject.GetComponentInChildren<CatchBar>().StopBar();
+        dealerImage.SetActive(true);
+        GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<CatchBar>().StopBar();
+    }
+
+    public IEnumerator TazeEffect()
+    {
+        yield return new WaitForSeconds(5);
+        isTazed = false;
+        GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<CatchBar>().StopBar();
     }
 }

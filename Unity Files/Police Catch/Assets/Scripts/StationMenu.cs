@@ -169,7 +169,7 @@ public class StationMenu : MonoBehaviour
         if (dealer.GetComponent<Dealer>().isCaught)
         {
             dealer.GetComponent<Dealer>().done = true;
-            dealer.GetComponent<Dealer>().dealer.SetActive(false);
+            dealer.GetComponent<Dealer>().dealerImage.SetActive(false);
             Destroy(enemyObject);
         }
     }
