@@ -15,7 +15,6 @@ public class CatchBar : MonoBehaviour
     void Start()
     {
         pos.x = 0;
-        dealer = GameObject.FindGameObjectWithTag("Dealer");
     }
 
 	void OnGUI()
@@ -32,7 +31,11 @@ public class CatchBar : MonoBehaviour
 	
 	void Update ()
     {
-        barDisplay = dealer.GetComponent<Dealer>().totalClicks / 10;
+        dealer = GameObject.FindGameObjectWithTag("Dealer");
+        if (pos.x == 400)
+        {
+            barDisplay = dealer.GetComponent<Dealer>().totalClicks / 10;
+        }
 	}
     public void StopBar()
     {

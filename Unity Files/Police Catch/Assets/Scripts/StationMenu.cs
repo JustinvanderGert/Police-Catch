@@ -7,14 +7,16 @@ public class StationMenu : MonoBehaviour
 {
     public List<string> objective = new List<string>();
     public List<string> details = new List<string>();
+    public List<GameObject> spawnPoints = new List<GameObject>();
 
-    public Dealer dealer;
+    public Dealer dealerScript;
 
     public GameObject stationCameraSpot;
     public GameObject garageCameraSpot;
     public GameObject stationCanvas;
-    public GameObject enemyObject;
+    public GameObject dealerPrefab;
     public GameObject firstMenu;
+    public GameObject dealer;
     public GameObject player;
 
     public GameObject panel1;
@@ -37,7 +39,8 @@ public class StationMenu : MonoBehaviour
 	void Start ()
     {
         stationCameraSpot.SetActive(false);
-        dealer = enemyObject.GetComponent<Dealer>();
+        dealer = GameObject.FindGameObjectWithTag("Dealer");
+        dealerScript = dealer.GetComponent<Dealer>();
 	}
 	
 	void Update ()
@@ -151,6 +154,15 @@ public class StationMenu : MonoBehaviour
         }
     }
 
+    public void MissionClicked()
+    {
+        int i = Random.Range(0, spawnPoints.Count);
+        Instantiate(dealerPrefab, spawnPoints[i].transform.position, spawnPoints[i].transform.rotation);
+
+        dealer = GameObject.FindGameObjectWithTag("Dealer");
+        dealerScript = dealer.GetComponent<Dealer>();
+    }
+
     public void Mission1Hover()
     {
         missionDetails.text = (details[listCount]);
@@ -166,11 +178,11 @@ public class StationMenu : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        if (dealer.GetComponent<Dealer>().isCaught)
+        if (dealerScript.GetComponent<Dealer>().isCaught)
         {
-            dealer.GetComponent<Dealer>().done = true;
-            dealer.GetComponent<Dealer>().dealerImage.SetActive(false);
-            Destroy(enemyObject);
+            dealerScript.GetComponent<Dealer>().done = true;
+            dealerScript.GetComponent<Dealer>().dealerImage.SetActive(false);
+            Destroy(dealer);
         }
     }
 }

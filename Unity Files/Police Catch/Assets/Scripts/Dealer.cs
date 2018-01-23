@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class Dealer : MonoBehaviour
 {
-    [SerializeField] Transform Player;
+    GameObject player;
     NavMeshAgent agent;
 
     public Text pressToCatch;
@@ -29,24 +29,28 @@ public class Dealer : MonoBehaviour
 
     void Start()
     {
+        dealerImage = GameObject.FindGameObjectWithTag("CaughtImage");
         agent = GetComponent<NavMeshAgent>();
         dealerImage.SetActive(false);
     }
 
     void Update()
     {
-        float distance = Vector3.Distance(transform.position, Player.position);
+        player = GameObject.FindGameObjectWithTag("Player");
+
+        float distance = Vector3.Distance(transform.position, player.transform.position);
 
         if (!isTazed & !isDowned)
         {
-            Vector3 runTo = transform.position + ((transform.position - Player.position) * multiplier);
+            Vector3 runTo = transform.position + ((transform.position - player.transform.position) * multiplier);
             if (distance < range) agent.SetDestination(runTo);
         }
 
         if (distance <= catchRange & isDowned || distance <= catchRange & isTazed)
         {
             pressToCatch.text = ("Press Q repeatedly to catch Dealer");
-            if (Input.GetButtonDown("Q")) { totalClicks += 1; }
+            if (Input.GetButtonDown("Q"))
+            { totalClicks += 1; }
         }
         else { pressToCatch.text = (""); }
 
