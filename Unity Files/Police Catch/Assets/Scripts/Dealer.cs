@@ -29,13 +29,13 @@ public class Dealer : MonoBehaviour
 
     void Start()
     {
-        dealerImage = GameObject.FindGameObjectWithTag("CaughtImage");
         agent = GetComponent<NavMeshAgent>();
         dealerImage.SetActive(false);
     }
 
     void Update()
     {
+
         player = GameObject.FindGameObjectWithTag("Player");
 
         float distance = Vector3.Distance(transform.position, player.transform.position);
@@ -79,5 +79,9 @@ public class Dealer : MonoBehaviour
         yield return new WaitForSeconds(5);
         isTazed = false;
         GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<CatchBar>().StopBar();
+    }
+    private void GetRidOff()
+    {
+        Destroy(gameObject);
     }
 }

@@ -18,6 +18,7 @@ public class StationMenu : MonoBehaviour
     public GameObject firstMenu;
     public GameObject dealer;
     public GameObject player;
+    public GameObject dealerImageTest;
 
     public GameObject panel1;
     public GameObject panel2;
@@ -33,6 +34,7 @@ public class StationMenu : MonoBehaviour
     public bool garageButton;
     public bool inMenu;
 
+    public Text dealerText;
     public Text missionDetails;
     private int listCount = 0;
 
@@ -154,13 +156,18 @@ public class StationMenu : MonoBehaviour
         }
     }
 
-    public void MissionClicked()
+    public void Mission2Clicked()
     {
-        int i = Random.Range(0, spawnPoints.Count);
-        Instantiate(dealerPrefab, spawnPoints[i].transform.position, spawnPoints[i].transform.rotation);
+        if(dealer != null)
+        {
+            int i = Random.Range(0, spawnPoints.Count);
+            dealerPrefab.GetComponent<Dealer>().dealerImage = dealerImageTest;
+            dealerPrefab.GetComponent<Dealer>().pressToCatch = dealerText;
+            Instantiate(dealerPrefab, spawnPoints[i].transform.position, spawnPoints[i].transform.rotation);
 
-        dealer = GameObject.FindGameObjectWithTag("Dealer");
-        dealerScript = dealer.GetComponent<Dealer>();
+            dealer = GameObject.FindGameObjectWithTag("Dealer");
+            dealerScript = dealer.GetComponent<Dealer>();
+        }
     }
 
     public void Mission1Hover()
@@ -182,7 +189,8 @@ public class StationMenu : MonoBehaviour
         {
             dealerScript.GetComponent<Dealer>().done = true;
             dealerScript.GetComponent<Dealer>().dealerImage.SetActive(false);
-            Destroy(dealer);
+            //dealerScript.GetComponent<Dealer>().GetridOff();
+            dealer = null;
         }
     }
 }
