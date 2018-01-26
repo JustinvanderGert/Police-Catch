@@ -158,7 +158,7 @@ public class StationMenu : MonoBehaviour
 
     public void Mission2Clicked()
     {
-        if(dealer != null)
+        if(dealer == null)
         {
             int i = Random.Range(0, spawnPoints.Count);
             dealerPrefab.GetComponent<Dealer>().dealerImage = dealerImageTest;
@@ -189,7 +189,8 @@ public class StationMenu : MonoBehaviour
         {
             dealerScript.GetComponent<Dealer>().done = true;
             dealerScript.GetComponent<Dealer>().dealerImage.SetActive(false);
-            //dealerScript.GetComponent<Dealer>().GetridOff();
+            dealerScript.GetComponent<Dealer>().GetRidOff();
+            dealerScript = null;
             dealer = null;
         }
     }
