@@ -8,6 +8,7 @@ public class Dealer : MonoBehaviour
 {
     GameObject player;
     NavMeshAgent agent;
+    public Animator animator;
 
     public Text pressToCatch;
 
@@ -43,7 +44,15 @@ public class Dealer : MonoBehaviour
         if (!isTazed & !isDowned)
         {
             Vector3 runTo = transform.position + ((transform.position - player.transform.position) * multiplier);
-            if (distance < range) agent.SetDestination(runTo);
+            if (distance <= range)
+            {
+                agent.SetDestination(runTo);
+                animator.SetBool("Walking", true);
+            }
+            else
+            {
+                animator.SetBool("Walking", false);
+            }
         }
 
         if (distance <= catchRange & isDowned || distance <= catchRange & isTazed)
