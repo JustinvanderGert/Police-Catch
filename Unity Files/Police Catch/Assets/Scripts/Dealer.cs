@@ -80,7 +80,7 @@ public class Dealer : MonoBehaviour
         isTazed = false;
         GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<CatchBar>().StopBar();
     }
-    private void GetRidOff()
+    public void GetRidOff()
     {
         Destroy(gameObject);
     }
