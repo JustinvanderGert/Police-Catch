@@ -8,6 +8,7 @@ public class Dealer : MonoBehaviour
 {
     GameObject player;
     NavMeshAgent agent;
+    public Animator animator;
 
     public Text pressToCatch;
 
@@ -43,16 +44,26 @@ public class Dealer : MonoBehaviour
         if (!isTazed & !isDowned)
         {
             Vector3 runTo = transform.position + ((transform.position - player.transform.position) * multiplier);
-            if (distance < range) agent.SetDestination(runTo);
+            if (distance <= range & !isTazed)
+            {
+                agent.SetDestination(runTo);
+                animator.SetBool("Walking", true);
+                animator.SetBool("Tazed", false);
+            }
+            else
+            {
+                animator.SetBool("Walking", false);
+            }
         }
 
         if (distance <= catchRange & isDowned || distance <= catchRange & isTazed)
         {
+            animator.SetBool("Tazed", true);
             pressToCatch.text = ("Press Q repeatedly to catch Dealer");
             if (Input.GetButtonDown("Q"))
             { totalClicks += 1; }
         }
-        else { pressToCatch.text = (""); }
+        else { pressToCatch.text = (""); animator.SetBool("Tazed", false); }
 
         if (totalClicks >= 0) { totalClicks -= 1 * (Time.deltaTime * clickCountdown); }
         if (totalClicks >= requiredClicks) { Caught(); }
