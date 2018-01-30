@@ -8,6 +8,7 @@ public class StationMenu : MonoBehaviour
     public List<string> objective = new List<string>();
     public List<string> details = new List<string>();
     public List<GameObject> spawnPoints = new List<GameObject>();
+    public List<GameObject> mugshots = new List<GameObject>();
 
     public Dealer dealerScript;
 
@@ -33,10 +34,12 @@ public class StationMenu : MonoBehaviour
     public bool loadoutButton;
     public bool garageButton;
     public bool inMenu;
+    bool exitMugshot;
 
     public Text dealerText;
     public Text missionDetails;
     private int listCount = 0;
+    private int i;
 
 	void Start ()
     {
@@ -67,6 +70,7 @@ public class StationMenu : MonoBehaviour
             garageButton = false;
             panel3.SetActive(false);
         }
+        if(Input.GetButtonDown("Fire1") && dealerScript.GetComponent<Dealer>().isCaught) { exitMugshot = true; }
     }
 
     //Buttons in menu.
@@ -192,6 +196,14 @@ public class StationMenu : MonoBehaviour
             dealerScript.GetComponent<Dealer>().GetRidOff();
             dealerScript = null;
             dealer = null;
+
+            i = Random.Range(0, mugshots.Count);
+            mugshots[i].SetActive(true);
+        }
+        if (exitMugshot == true)
+        {
+            mugshots[i].SetActive(false);
+            exitMugshot = false;
         }
     }
 }

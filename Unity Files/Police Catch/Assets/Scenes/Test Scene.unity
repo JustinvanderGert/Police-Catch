@@ -2278,15 +2278,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4420470240266734, guid: 163ddbd660f0bbb46ab50d48480f2276, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -30.757805
+      value: -30.76
       objectReference: {fileID: 0}
     - target: {fileID: 4420470240266734, guid: 163ddbd660f0bbb46ab50d48480f2276, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0.19000006
+      value: 356.729
       objectReference: {fileID: 0}
     - target: {fileID: 4420470240266734, guid: 163ddbd660f0bbb46ab50d48480f2276, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 20.76447
+      value: 20.76
       objectReference: {fileID: 0}
     - target: {fileID: 4420470240266734, guid: 163ddbd660f0bbb46ab50d48480f2276, type: 2}
       propertyPath: m_LocalRotation.x
@@ -6162,6 +6162,7 @@ MonoBehaviour:
   - {fileID: 2068825241}
   - {fileID: 191886550}
   - {fileID: 689131167}
+  mugshots: []
   dealerScript: {fileID: 0}
   stationCameraSpot: {fileID: 1929318774}
   garageCameraSpot: {fileID: 748101312}
