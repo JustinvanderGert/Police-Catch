@@ -38,28 +38,36 @@ public class StationMenu : MonoBehaviour
 
     public Text dealerText;
     public Text missionDetails;
+    public Text goldText;
     private int listCount = 0;
+    public int Gold;
     private int i;
 
-	void Start ()
+    CursorLockMode wantedMode;
+
+    void Start()
     {
+        wantedMode = CursorLockMode.Locked;
         stationCameraSpot.SetActive(false);
         dealer = GameObject.FindGameObjectWithTag("Dealer");
         dealerScript = dealer.GetComponent<Dealer>();
-	}
-	
-	void Update ()
+    }
+
+    void Update()
     {
+        Cursor.lockState = wantedMode;
         float distance = Vector3.Distance(player.transform.position, transform.position);
 
         if (distance <= 8 & inMenu == false & Input.GetButtonDown("E"))
         {
+            wantedMode = CursorLockMode.None;
             stationCameraSpot.SetActive(true);
             stationCanvas.SetActive(true);
             inMenu = true;
         }
         else if (inMenu == true & Input.GetButtonDown("E"))
         {
+            wantedMode = CursorLockMode.Locked;
             stationCameraSpot.SetActive(false);
             stationCanvas.SetActive(false);
             inMenu = false;
@@ -70,7 +78,13 @@ public class StationMenu : MonoBehaviour
             garageButton = false;
             panel3.SetActive(false);
         }
-        if(Input.GetButtonDown("Fire1") && dealerScript.GetComponent<Dealer>().isCaught) { exitMugshot = true; }
+
+        if (Input.GetButtonDown("Fire1") && mugshots[i].activeSelf) { exitMugshot = true; }
+        if (exitMugshot == true)
+        {
+            mugshots[i].SetActive(false);
+            exitMugshot = false;
+        }
     }
 
     //Buttons in menu.
@@ -196,14 +210,10 @@ public class StationMenu : MonoBehaviour
             dealerScript.GetComponent<Dealer>().GetRidOff();
             dealerScript = null;
             dealer = null;
+            Gold += 50;
 
             i = Random.Range(0, mugshots.Count);
             mugshots[i].SetActive(true);
-        }
-        if (exitMugshot == true)
-        {
-            mugshots[i].SetActive(false);
-            exitMugshot = false;
         }
     }
 }

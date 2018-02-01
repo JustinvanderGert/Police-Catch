@@ -244,7 +244,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1417728633890356
 GameObject:
   m_ObjectHideFlags: 1
@@ -795,7 +795,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1405673539459636}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -57.72, y: 1.43, z: 12.76}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4945939113775716}
@@ -1505,14 +1505,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e73c7077c6839c741b4b9fe2ece3ea13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  vroom: {fileID: 8300000, guid: 694f9d41e95a7504785400df04f592ad, type: 3}
+  weehooh: {fileID: 8300000, guid: 3d76e07d48a56fc488b89a1f5f11a9bd, type: 3}
   zwaailicht: {fileID: 1598063456111184}
   cameraSpot: {fileID: 1206444006130962}
   playerExit: {fileID: 1880424945051898}
   exhaust: {fileID: 1990659769033722}
   player: {fileID: 0}
-  weehooh: {fileID: 0}
   enterCar: {fileID: 0}
-  activate: 1
+  activateWeehooh: 0
+  activateVroom: 0
   turnspeed: 0
   acceleration: 0
 --- !u!114 &114481526273279316
