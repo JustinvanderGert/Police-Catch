@@ -9,6 +9,7 @@ public class StationMenu : MonoBehaviour
     public List<string> details = new List<string>();
     public List<GameObject> spawnPoints = new List<GameObject>();
     public List<GameObject> mugshots = new List<GameObject>();
+    public List<GameObject> straffen = new List<GameObject>();
 
     public Dealer dealerScript;
 
@@ -43,7 +44,7 @@ public class StationMenu : MonoBehaviour
     public int Gold;
     private int i;
 
-    CursorLockMode wantedMode;
+    public CursorLockMode wantedMode;
 
     void Start()
     {
@@ -83,6 +84,7 @@ public class StationMenu : MonoBehaviour
         if (exitMugshot == true)
         {
             mugshots[i].SetActive(false);
+            straffen[i].SetActive(false);
             exitMugshot = false;
         }
     }
@@ -211,8 +213,9 @@ public class StationMenu : MonoBehaviour
             dealerScript = null;
             dealer = null;
             Gold += 50;
-
+            
             i = Random.Range(0, mugshots.Count);
+            straffen[i].SetActive(true);
             mugshots[i].SetActive(true);
         }
     }
