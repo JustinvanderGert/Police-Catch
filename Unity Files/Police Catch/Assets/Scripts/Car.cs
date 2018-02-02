@@ -5,15 +5,19 @@ using UnityEngine;
 
 public class Car : MonoBehaviour
 {
+    AudioSource audioSource;
+    public AudioClip vroom;
+    public AudioClip weehooh;
+
     public GameObject zwaailicht;
     public GameObject cameraSpot;
     public GameObject playerExit;
     public GameObject exhaust;
     public GameObject player;
 
-    public AudioClip weehooh;
     public Text enterCar;
-    public bool activate;
+    public bool activateWeehooh;
+    public bool activateVroom;
 
     public float turnspeed;
     public float acceleration;
@@ -55,14 +59,18 @@ public class Car : MonoBehaviour
 
         if (Input.GetButtonDown("Q") && !player.activeSelf)
         {
-            if (activate)
+            if (activateWeehooh)
             {
                 weehooh.Play();
             }
             else { weehooh.Stop(); }
 
-            zwaailicht.SetActive(activate);
-            activate = !activate;
+            zwaailicht.SetActive(activateWeehooh);
+            activateWeehooh = !activateWeehooh;
+        }
+        if (activateVroom)
+        {
+            audioSource.PlayOneShot(vroom, 0.7F);
         }
     }
 
@@ -75,6 +83,7 @@ public class Car : MonoBehaviour
     {
         if (!player.activeSelf)
         {
+            activateVroom = true;
             if (Input.GetButton("W"))
             {
                 acceleration += 0.2f;
@@ -108,5 +117,6 @@ public class Car : MonoBehaviour
         exhaust.SetActive(false);
         player.transform.position = playerExit.transform.position;
         weehooh.Stop();
+        activateVroom = false;
     }
 }

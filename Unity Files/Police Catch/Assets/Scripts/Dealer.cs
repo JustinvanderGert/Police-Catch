@@ -6,6 +6,10 @@ using UnityEngine;
 
 public class Dealer : MonoBehaviour
 {
+    public AudioClip bzzzt;
+    public AudioClip scream;
+    AudioSource audioSource;
+
     GameObject player;
     NavMeshAgent agent;
     public Animator animator;
@@ -28,8 +32,12 @@ public class Dealer : MonoBehaviour
     public bool isTazed;
     public GameObject dealerImage;
 
+    bool playSound;
+    bool soundPlayed;
+
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         agent = GetComponent<NavMeshAgent>();
         dealerImage.SetActive(false);
     }
@@ -46,6 +54,12 @@ public class Dealer : MonoBehaviour
             Vector3 runTo = transform.position + ((transform.position - player.transform.position) * multiplier);
             if (distance <= range & !isTazed)
             {
+                if (soundPlayed == false)
+                {
+                    Debug.Log("play sound");
+                    soundPlayed = true;
+                    audioSource.PlayOneShot(scream, 0.7F);
+                }
                 agent.SetDestination(runTo);
                 animator.SetBool("Walking", true);
                 animator.SetBool("Tazed", false);
@@ -53,6 +67,7 @@ public class Dealer : MonoBehaviour
             else
             {
                 animator.SetBool("Walking", false);
+                soundPlayed = false;
             }
         }
 
@@ -70,6 +85,8 @@ public class Dealer : MonoBehaviour
     }
     public void Tazed()
     {
+        audioSource.PlayOneShot(bzzzt, 0.7F);
+
         isTazed = true;
         StartCoroutine(TazeEffect());
         GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<CatchBar>().StartBar();
