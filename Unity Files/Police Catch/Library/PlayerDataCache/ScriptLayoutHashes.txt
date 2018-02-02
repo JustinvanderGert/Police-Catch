@@ -113,6 +113,7 @@ b17fea7d034d165119def61548a55097 Assembly-CSharp.dll:.StationMenu
 130879bd381753dd4e7566eda136b9e5 Assembly-CSharp.dll:.Waypoint
 94cb8527963316dc20cceaa3e8e83bf2 Assembly-CSharp.dll:.Dealer
 855bf78e711c956ed22b666628e93bfb Assembly-CSharp.dll:.Car
+a8d26dab2cb033d58f2096ee058c1b74 Assembly-CSharp.dll:.SceneManager
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.Zwaailicht
 fc1e0f4d8439d9928083474691511a13 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkAnimator
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Networking.dll:UnityEngine.Networking.NetworkBehaviour
@@ -140,4 +141,3 @@ c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.VR.WSA.Spa
 45f3431f0103c41611e8d4eec3d439df UnityEngine.HoloLens.dll:UnityEngine.VR.WSA.SpatialMappingRenderer
 1a7f4101afa57a50e08a1b1303ac28a6 Assembly-CSharp.dll:.Trafficlights
 bde2c9d41acc240d29d010085a418dd7 Assembly-CSharp.dll:.Bullet
-a8d26dab2cb033d58f2096ee058c1b74 Assembly-CSharp.dll:.SceneManager

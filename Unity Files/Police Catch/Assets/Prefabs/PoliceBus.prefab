@@ -705,14 +705,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vroom: {fileID: 8300000, guid: 694f9d41e95a7504785400df04f592ad, type: 3}
+  weehooh: {fileID: 8300000, guid: 3d76e07d48a56fc488b89a1f5f11a9bd, type: 3}
   zwaailicht: {fileID: 1272918443657818}
   cameraSpot: {fileID: 1176174498249066}
   playerExit: {fileID: 1471559598260500}
   exhaust: {fileID: 1467390728183474}
   player: {fileID: 0}
-  weehooh: {fileID: 8300000, guid: 3d76e07d48a56fc488b89a1f5f11a9bd, type: 3}
   enterCar: {fileID: 0}
-  activate: 0
+  activateWeehooh: 0
+  activateVroom: 0
   turnspeed: 0
   acceleration: 0
 --- !u!114 &114980389827961780
