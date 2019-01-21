@@ -1,9 +1,7 @@
 fileFormatVersion: 2
 guid: 1a3934964af73374888805a210c3e9e8
-timeCreated: 1512477423
-licenseType: Free
 ModelImporter:
-  serializedVersion: 21
+  serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
@@ -11,10 +9,38 @@ ModelImporter:
     3300000: //RootNode
     4300000: PoliceStation:pCube7
     9500000: //RootNode
+    2186277476908879412: ImportLogs
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PoliceStation_Heli1
+    second: {fileID: 2100000, guid: e346b5efa5d276b47b99d81f8a72ab39, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PoliceStation_PolitieSteen
+    second: {fileID: 2100000, guid: ff47951221fd8114393478a1b79b1476, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PoliceStation_Raam
+    second: {fileID: 2100000, guid: a53adff3c7ce86848aa751ff25c6d10f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PoliceStation_Zwart
+    second: {fileID: 2100000, guid: dacd24b17485fe440b9e1be3f2cf20c3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert1
+    second: {fileID: 2100000, guid: 3c0a2202313454447a345d8674631ded, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
     materialSearch: 1
+    materialLocation: 0
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
@@ -27,6 +53,8 @@ ModelImporter:
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
@@ -51,6 +79,8 @@ ModelImporter:
     optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 1
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88

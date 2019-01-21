@@ -1,9 +1,7 @@
 fileFormatVersion: 2
 guid: 1157c432be9a6fb408553267d5590e05
-timeCreated: 1512123365
-licenseType: Free
 ModelImporter:
-  serializedVersion: 21
+  serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
@@ -11,10 +9,58 @@ ModelImporter:
     3300000: //RootNode
     4300000: PoltieAutoFinnished:pCube13
     9500000: //RootNode
+    2186277476908879412: ImportLogs
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PoltieAutoFinnished_Grijs
+    second: {fileID: 2100000, guid: b589f66768bff4644bd0f84553d182c4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PoltieAutoFinnished_Lamp
+    second: {fileID: 2100000, guid: a2355e7372fea69448ae0fbf9f956cca, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PoltieAutoFinnished_LampKleur
+    second: {fileID: 2100000, guid: 41dd5f0127bcd4641976709358927dd4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PoltieAutoFinnished_PolitieZwart
+    second: {fileID: 2100000, guid: 2ca4a2fdef661ce4f98c5d7f45382b85, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PoltieAutoFinnished_Raam
+    second: {fileID: 2100000, guid: 1234ff97addf1464f8a6514de527c049, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PoltieAutoFinnished_Rood
+    second: {fileID: 2100000, guid: 926dec94e3537174cad67bb38f54db69, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PoltieAutoFinnished_Uitlaat
+    second: {fileID: 2100000, guid: f91a0de06885e2e40be9b71b611b9afd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PoltieAutoFinnished_Wit
+    second: {fileID: 2100000, guid: 1dd10a4548c99024b911c8ba9e96a784, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PoltieAutoFinnished_Zwart
+    second: {fileID: 2100000, guid: 86beb8634f7c8364d9d44774c497de01, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
     materialSearch: 1
+    materialLocation: 0
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
@@ -27,6 +73,8 @@ ModelImporter:
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
@@ -51,6 +99,8 @@ ModelImporter:
     optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 1
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
